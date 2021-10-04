@@ -2,70 +2,39 @@
 
 <asp:Content ID="BodyContent" ContentPlaceHolderID="MainContent" runat="server">
 
-    <div id="carousel-example-generic" class="carousel slide" data-ride="carousel">
-  <!-- Indicators -->
-  <ol class="carousel-indicators">
-    <li data-target="#carousel-example-generic" data-slide-to="0" class="active"></li>
-    <li data-target="#carousel-example-generic" data-slide-to="1"></li>
-    <li data-target="#carousel-example-generic" data-slide-to="2"></li>
-  </ol>
+ <div class="carousel slide" data-ride="carousel">
 
   <!-- Wrapper for slides -->
-  <div class="carousel-inner" role="listbox">
+  <div class="carousel-inner" role="listbox" >
     <div class="item active">
-      <img src="..." alt="...">
-      <div class="carousel-caption">
-        ...
-      </div>
+      <img src="Images/Fish.jpg" alt="Fish">
+        <div class="carousel-caption">
+            <h2 style="color:white; font-family: 'Brush Script MT', cursive;">Welcome to LoPets</h2>
+        </div>
     </div>
     <div class="item">
-      <img src="..." alt="...">
-      <div class="carousel-caption">
-        ...
-      </div>
+      <img src="Images/dog.jpg" alt="Dog">
+        <div class="carousel-caption">
+            <h2 style="color:white; font-family: 'Brush Script MT', cursive;">Low prices for the best pets</h2>
+        </div>
     </div>
-    ...
   </div>
 
-  <!-- Controls -->
-  <a class="left carousel-control" href="#carousel-example-generic" role="button" data-slide="prev">
-    <span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>
-    <span class="sr-only">Previous</span>
-  </a>
-  <a class="right carousel-control" href="#carousel-example-generic" role="button" data-slide="next">
-    <span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>
-    <span class="sr-only">Next</span>
-  </a>
 </div>
 
-    <div class="row">
+    <div class="row text-center">
+        <h2>Featured Items</h2> <br />
         <div class="col-md-4">
-            <h2>Getting started</h2>
-            <p>
-                ASP.NET Web Forms lets you build dynamic websites using a familiar drag-and-drop, event-driven model.
-            A design surface and hundreds of controls and components let you rapidly build sophisticated, powerful UI-driven sites with data access.
-            </p>
-            <p>
-                <a class="btn btn-default" href="https://go.microsoft.com/fwlink/?LinkId=301948">Learn more &raquo;</a>
-            </p>
+            <img src="Images/Adjystable-leash.jpeg" width="200"/><br /> <br />
+            <a class="btn btn-primary" href="Products.aspx">Details &raquo;</a>
         </div>
         <div class="col-md-4">
-            <h2>Get more libraries</h2>
-            <p>
-                NuGet is a free Visual Studio extension that makes it easy to add, remove, and update libraries and tools in Visual Studio projects.
-            </p>
-            <p>
-                <a class="btn btn-default" href="https://go.microsoft.com/fwlink/?LinkId=301949">Learn more &raquo;</a>
-            </p>
+            <img src="Images/dog-collar.jpg" width="200"/><br /> <br />
+            <a class="btn btn-primary" href="Products.aspx">Details &raquo;</a>
         </div>
         <div class="col-md-4">
-            <h2>Web Hosting</h2>
-            <p>
-                You can easily find a web hosting company that offers the right mix of features and price for your applications.
-            </p>
-            <p>
-                <a class="btn btn-default" href="https://go.microsoft.com/fwlink/?LinkId=301950">Learn more &raquo;</a>
-            </p>
+            <img src="Images/cat-fish-toy.jpg" width="200"/><br /> <br />
+            <a class="btn btn-primary" href="Products.aspx">Details &raquo;</a>
         </div>
     </div>
 
