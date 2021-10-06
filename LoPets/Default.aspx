@@ -24,17 +24,17 @@
 
     <div class="row text-center">
         <h2>Featured Items</h2> <br />
-        <div class="col-md-4">
-            <img src="Images/Adjystable-leash.jpeg" width="200"/><br /> <br />
-            <a class="btn btn-primary" href="Products.aspx">Details &raquo;</a>
+        <div class="panel panel-default col-md-4">
+            <div class="panel-heading"><img src="Images/Adjystable-leash.jpeg" height="200"/></div>
+            <div class="panel-footer"><a class="btn btn-primary" href="Products.aspx">Details &raquo;</a></div>
         </div>
-        <div class="col-md-4">
-            <img src="Images/dog-collar.jpg" width="200"/><br /> <br />
-            <a class="btn btn-primary" href="Products.aspx">Details &raquo;</a>
+        <div class="panel panel-default col-md-4">
+            <div class="panel-heading"><img src="Images/dog-collar.jpg" height="200"/></div>
+            <div class="panel-footer"><a class="btn btn-primary" href="Products.aspx">Details &raquo;</a></div>
         </div>
-        <div class="col-md-4">
-            <img src="Images/cat-fish-toy.jpg" width="200"/><br /> <br />
-            <a class="btn btn-primary" href="Products.aspx">Details &raquo;</a>
+        <div class="panel panel-default col-md-4">
+            <div class="panel-heading"><img src="Images/cat-fish-toy.jpg" height="200"/></div>
+            <div class="panel-footer"><a class="btn btn-primary" href="Products.aspx">Details &raquo;</a></div>
         </div>
     </div>
 

@@ -187,12 +187,13 @@
     <Content Include="Content\bootstrap-theme.css.map" />
     <Content Include="Account\Web.config" />
     <None Include="Scripts\jquery-3.4.1.intellisense.js" />
-    <Content Include="Images\Adjystable-leash.jpeg" />
+    <Content Include="Images\Adjustable-leash.jpeg" />
     <Content Include="Images\cat-fish-toy.jpg" />
     <Content Include="Images\dog-collar.jpg" />
     <Content Include="Images\dog-harness.jpg" />
     <Content Include="Images\dog.jpg" />
-    <Content Include="Images\fish-tank.jpg" />
+    <Content Include="Images\round-fish-tank.jpg" />
+    <Content Include="Images\fish-tank2.jpg" />
     <Content Include="Images\Fish.jpg" />
     <Content Include="Images\hamster-ball.jpg" />
     <Content Include="Images\Lopets-logo.png" />
