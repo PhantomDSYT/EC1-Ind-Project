@@ -400,6 +400,7 @@
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
     <Compile Include="Models\IdentityModels.cs" />
+    <Compile Include="Product.cs" />
     <Compile Include="Products.aspx.cs">
       <DependentUpon>Products.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
