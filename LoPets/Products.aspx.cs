@@ -14,9 +14,11 @@ namespace LoPets
 
         }
 
-        protected void LinkButton1_Click(object sender, EventArgs e)
+        protected void Button1_Click(object sender, EventArgs e)
         {
-
+            Product product = new Product("Adjustable Leash", 3000.00);
+            Session.Add("NewData", product);
+            Response.Redirect("~/Cart.aspx");
         }
     }
 }

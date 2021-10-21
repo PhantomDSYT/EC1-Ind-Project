@@ -11,7 +11,14 @@ namespace LoPets
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-
+            if(Session["NewData"] != null)
+            {
+                Label1.Text = "Success";
+            }
+            else
+            {
+                Label1.Text = "Failure";
+            }
         }
     }
 }

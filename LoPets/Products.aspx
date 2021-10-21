@@ -13,7 +13,9 @@
                 </p>
                 <h3>&#36 3,000.00</h3>
             </div>
-            <div class ="panel-footer panel-primary"><a class="btn btn-primary" href="Products.aspx">Add to cart &raquo;</a> </div>
+            <div class ="panel-footer panel-primary">
+                <asp:Button ID="Button1" runat="server" CssClass="btn btn-primary" Text="Add to cart &raquo;" OnClick="Button1_Click" />
+            </div>
         </div>
 
         <div class="panel panel-default col-md-4">
