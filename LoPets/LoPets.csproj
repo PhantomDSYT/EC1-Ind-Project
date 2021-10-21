@@ -166,6 +166,7 @@
     <Content Include="Account\ResetPasswordConfirmation.aspx" />
     <Content Include="Account\TwoFactorAuthenticationSignIn.aspx" />
     <Content Include="Account\VerifyPhoneNumber.aspx" />
+    <Content Include="Cart.aspx" />
     <Content Include="Contact.aspx" />
     <Content Include="Content\bootstrap-theme.css" />
     <Content Include="Content\bootstrap-theme.min.css" />
@@ -174,6 +175,9 @@
     <Content Include="Content\lumen-bootstrap.css" />
     <Content Include="Content\Site.css" />
     <Content Include="Default.aspx" />
+    <Content Include="Error_Pages\Error_403.aspx" />
+    <Content Include="Error_Pages\Error_404.aspx" />
+    <Content Include="Error_Pages\Generic.aspx" />
     <Content Include="favicon.ico" />
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Global.asax" />
@@ -188,6 +192,7 @@
     <Content Include="Account\Web.config" />
     <None Include="Scripts\jquery-3.4.1.intellisense.js" />
     <Content Include="Images\Adjustable-leash.jpeg" />
+    <Content Include="Images\black_pup.jpg" />
     <Content Include="Images\cat-fish-toy.jpg" />
     <Content Include="Images\dog-collar.jpg" />
     <Content Include="Images\dog-harness.jpg" />
@@ -349,6 +354,13 @@
     <Compile Include="App_Start\IdentityConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="App_Start\Startup.Auth.cs" />
+    <Compile Include="Cart.aspx.cs">
+      <DependentUpon>Cart.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Cart.aspx.designer.cs">
+      <DependentUpon>Cart.aspx</DependentUpon>
+    </Compile>
     <Compile Include="Contact.aspx.cs">
       <DependentUpon>Contact.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -362,6 +374,27 @@
     </Compile>
     <Compile Include="Default.aspx.designer.cs">
       <DependentUpon>Default.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Error_Pages\Error_403.aspx.cs">
+      <DependentUpon>Error_403.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Error_Pages\Error_403.aspx.designer.cs">
+      <DependentUpon>Error_403.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Error_Pages\Error_404.aspx.cs">
+      <DependentUpon>Error_404.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Error_Pages\Error_404.aspx.designer.cs">
+      <DependentUpon>Error_404.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Error_Pages\Generic.aspx.cs">
+      <DependentUpon>Generic.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Error_Pages\Generic.aspx.designer.cs">
+      <DependentUpon>Generic.aspx</DependentUpon>
     </Compile>
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
