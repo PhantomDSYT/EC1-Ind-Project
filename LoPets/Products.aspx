@@ -28,7 +28,7 @@
                 </p>
                 <h3>&#36 2,500.00</h3>
             </div>
-            <div class ="panel-footer"><a class="btn btn-primary" href="Products.aspx">Add to cart &raquo;</a>  </div>              
+            <div class ="panel-footer"><asp:Button ID="Button2" runat="server" CssClass="btn btn-primary" Text="Add to cart &raquo;" OnClick="Button2_Click" /> </div>              
         </div>
 
         <div class="panel panel-default col-md-4">
@@ -41,7 +41,7 @@
                 </p>
                 <h3>&#36 12,000.00</h3>
             </div>
-             <div class ="panel-footer"><a class="btn btn-primary" href="Products.aspx">Add to cart &raquo;</a></div>
+             <div class ="panel-footer"><asp:Button ID="Button3" runat="server" CssClass="btn btn-primary" Text="Add to cart &raquo;" OnClick="Button3_Click" /></div>
         </div>
 
         <div class="panel panel-default col-md-4">
@@ -54,7 +54,7 @@
                 </p>
                 <h3>&#36 2,000.00</h3>
             </div>
-             <div class ="panel-footer"><a class="btn btn-primary" href="Products.aspx">Add to cart &raquo;</a></div>
+             <div class ="panel-footer"><asp:Button ID="Button4" runat="server" CssClass="btn btn-primary" Text="Add to cart &raquo;" OnClick="Button4_Click" /></div>
         </div>
 
         <div class="panel panel-default col-md-4">
@@ -67,7 +67,7 @@
                 </p>
                 <h3>&#36 500.00</h3>
             </div>
-             <div class ="panel-footer"><a class="btn btn-primary" href="Products.aspx">Add to cart &raquo;</a></div>
+             <div class ="panel-footer"><asp:Button ID="Button5" runat="server" CssClass="btn btn-primary" Text="Add to cart &raquo;" OnClick="Button5_Click" /></div>
         </div>
 
         <div class="panel panel-default col-md-4">
@@ -80,7 +80,7 @@
                 </p>
                 <h3>&#36 45,000.00</h3>
             </div>
-             <div class ="panel-footer"><a class="btn btn-primary" href="Products.aspx">Add to cart &raquo;</a></div>
+             <div class ="panel-footer"><asp:Button ID="Button6" runat="server" CssClass="btn btn-primary" Text="Add to cart &raquo;" OnClick="Button6_Click" /></div>
         </div>
 
     </div>
