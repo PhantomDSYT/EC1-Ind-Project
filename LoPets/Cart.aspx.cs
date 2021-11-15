@@ -12,6 +12,9 @@ namespace LoPets
     {
         protected void Page_Load(object sender, EventArgs e)
         {
+            string user = User.Identity.Name;
+            SqlDataSource1.SelectParameters.Clear();
+            SqlDataSource1.SelectParameters.Add("@UserName", user);           
             if(!Page.IsPostBack)
             {
                 object sum;

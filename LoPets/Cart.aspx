@@ -5,27 +5,17 @@
             <asp:Button ID="Button1" runat="server" Text="Checkout" CssClass="btn btn-success" OnClick="Button1_Click" />
         </div>
 
-        <asp:GridView ID="GridView1" runat="server" class="table table-condensed table-hover table-striped" OnRowDeleting="GV_RowDeleting" OnRowUpdated="GridView1_RowUpdated" OnRowEditing="GridView1_RowEditing" OnRowUpdating="GridView1_RowUpdating" AutoGenerateColumns="False" OnRowCancelingEdit="GridView1_RowCancelingEdit">
+        <asp:GridView ID="GridView1" runat="server" class="table table-condensed table-hover table-striped" OnRowDeleting="GV_RowDeleting" OnRowUpdated="GridView1_RowUpdated" OnRowEditing="GridView1_RowEditing" OnRowUpdating="GridView1_RowUpdating" AutoGenerateColumns="False" OnRowCancelingEdit="GridView1_RowCancelingEdit" DataSourceID="LopetsDB">
         <Columns>
-            <asp:BoundField DataField="Name" HeaderText="Name" ReadOnly="True" />
-            <asp:BoundField DataField="Price" HeaderText="Price" ReadOnly="True" />
-            <asp:TemplateField HeaderText="Qty">
-                <EditItemTemplate>
-                    <asp:TextBox ID="Quantity" runat="server" Text='<%# Eval("Qty") %>'></asp:TextBox>
-                </EditItemTemplate>
-                <ItemTemplate>
-                    <asp:Label ID="Label2" runat="server" Text='<%# Bind("Qty") %>'></asp:Label>
-                </ItemTemplate>
-            </asp:TemplateField>
-            <asp:BoundField DataField="SubTotal" HeaderText="SubTotal" ReadOnly="True" />
-            <asp:CommandField ButtonType="Button" DeleteText="" InsertText="" NewText="" SelectText="" ShowEditButton="True" >
-                <ControlStyle CssClass="btn btn-info" />
-            </asp:CommandField>
-            <asp:CommandField ShowDeleteButton="True" ButtonType="Button">
-                <ControlStyle CssClass="btn btn-danger" />
-            </asp:CommandField>
+            <asp:BoundField DataField="ItemId" HeaderText="ItemId" SortExpression="ItemId" />
+            <asp:BoundField DataField="ItemQty" HeaderText="ItemQty" SortExpression="ItemQty" />
+            <asp:BoundField DataField="itemPrice" HeaderText="itemPrice" SortExpression="itemPrice" />
         </Columns>
     </asp:GridView>
+    <asp:SqlDataSource ID="LopetsDB" runat="server" ConnectionString="<%$ ConnectionStrings:LoPetsConnectionString %>" OldValuesParameterFormatString="original_{0}" SelectCommand="SELECT [ItemId], [ItemQty], [itemPrice] FROM [ShoppingCart]">
+    </asp:SqlDataSource>
+    <asp:SqlDataSource ID="SqlDataSource1" runat="server" ConnectionString="<%$ ConnectionStrings:LoPetsConnectionString %>" SelectCommand="SELECT * FROM [Orders] WHERE ([UserName] = @UserName)">
+    </asp:SqlDataSource>
     <div class="text-right">
         <h3>Total: $<asp:Label ID="Label1" runat="server" Text="0"></asp:Label>.00</h3>
     </div>

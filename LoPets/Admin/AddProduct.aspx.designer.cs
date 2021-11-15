@@ -7,11 +7,11 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace LoPets.Account
+namespace LoPets.Admin
 {
 
 
-    public partial class Login
+    public partial class AddProduct
     {
 
         /// <summary>
@@ -33,48 +33,66 @@ namespace LoPets.Account
         protected global::System.Web.UI.WebControls.Literal FailureText;
 
         /// <summary>
-        /// Username control.
+        /// ProductName control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox Username;
+        protected global::System.Web.UI.WebControls.TextBox ProductName;
 
         /// <summary>
-        /// Password control.
+        /// ProductCategory control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox Password;
+        protected global::System.Web.UI.WebControls.DropDownList ProductCategory;
 
         /// <summary>
-        /// RememberMe control.
+        /// LoPetsDB control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.CheckBox RememberMe;
+        protected global::System.Web.UI.WebControls.SqlDataSource LoPetsDB;
 
         /// <summary>
-        /// RegisterHyperLink control.
+        /// ProductPrice control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.HyperLink RegisterHyperLink;
+        protected global::System.Web.UI.WebControls.TextBox ProductPrice;
 
         /// <summary>
-        /// OpenAuthLogin control.
+        /// ProductDesc control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::LoPets.Account.OpenAuthProviders OpenAuthLogin;
+        protected global::System.Web.UI.WebControls.TextBox ProductDesc;
+
+        /// <summary>
+        /// ProductImg control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.FileUpload ProductImg;
+
+        /// <summary>
+        /// DBSource control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.SqlDataSource DBSource;
     }
 }

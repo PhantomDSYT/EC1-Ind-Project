@@ -12,7 +12,7 @@ namespace LoPets
         public string ProductName { get; set; }
         public string ProductDesc { get; set;  }
         public double ProductPrice { get; set;  }
-        public Image ProductImage { get; set; }
+        public string ProductImg { get; set; }
 
         public Product(string name, double price) 
         {

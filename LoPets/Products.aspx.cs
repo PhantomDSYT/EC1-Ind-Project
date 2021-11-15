@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Data.SqlClient;
 using System.Linq;
 using System.Web;
 using System.Web.UI;
@@ -14,46 +15,12 @@ namespace LoPets
 
         }
 
-        protected void Button1_Click(object sender, EventArgs e)
+        protected void AddToCart(object sender, EventArgs e)
         {
-            Product product = new Product("Adjustable Leash", 3000.00);
-            Session.Add("NewData", product);
+            string id = (((sender as Button).NamingContainer as RepeaterItem).FindControl("ItemID") as Label).Text;
+            Session.Add("NewData", id);
             Response.Redirect("~/Cart.aspx");
         }
 
-        protected void Button2_Click(object sender, EventArgs e)
-        {
-            Product product = new Product("Dog Harness", 2500.00);
-            Session.Add("NewData", product);
-            Response.Redirect("~/Cart.aspx");
-        }
-
-        protected void Button3_Click(object sender, EventArgs e)
-        {
-            Product product = new Product("Fish Tank", 12000.00);
-            Session.Add("NewData", product);
-            Response.Redirect("~/Cart.aspx");
-        }
-
-        protected void Button4_Click(object sender, EventArgs e)
-        {
-            Product product = new Product("Dog Collar", 2000.00);
-            Session.Add("NewData", product);
-            Response.Redirect("~/Cart.aspx");
-        }
-
-        protected void Button5_Click(object sender, EventArgs e)
-        {
-            Product product = new Product("Fish Toy", 500.00);
-            Session.Add("NewData", product);
-            Response.Redirect("~/Cart.aspx");
-        }
-
-        protected void Button6_Click(object sender, EventArgs e)
-        {
-            Product product = new Product("LED Fish Tank", 45000.00);
-            Session.Add("NewData", product);
-            Response.Redirect("~/Cart.aspx");
-        }
     }
 }

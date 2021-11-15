@@ -25,7 +25,7 @@
     <div class="row text-center">
         <h2>Featured Items</h2> <br />
         <div class="panel panel-default col-md-4">
-            <div class="panel-heading"><img src="Images/Adjustable-leash.jpeg" height="200"/></div>
+            <div class="panel-heading"><img src="Images/Adjustable-leash.jpg" height="200"/></div>
             <div class="panel-footer"><a class="btn btn-primary" href="Products.aspx">Details &raquo;</a></div>
         </div>
         <div class="panel panel-default col-md-4">
@@ -33,7 +33,7 @@
             <div class="panel-footer"><a class="btn btn-primary" href="Products.aspx">Details &raquo;</a></div>
         </div>
         <div class="panel panel-default col-md-4">
-            <div class="panel-heading"><img src="Images/cat-fish-toy.jpg" height="200"/></div>
+            <div class="panel-heading"><img src="Images/fish-toy.jpg" height="200"/></div>
             <div class="panel-footer"><a class="btn btn-primary" href="Products.aspx">Details &raquo;</a></div>
         </div>
     </div>
