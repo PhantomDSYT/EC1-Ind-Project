@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Data;
+using System.Data.SqlClient;
 using System.Linq;
 using System.Web;
 using System.Web.UI;
@@ -10,104 +11,90 @@ namespace LoPets
 {
     public partial class Cart : System.Web.UI.Page
     {
+        SqlConnection con = new SqlConnection(@"Data Source=PHANTOM-LAPTOP\SQLEXPRESS;Initial Catalog=LoPets;Integrated Security=True");
         protected void Page_Load(object sender, EventArgs e)
         {
             string user = User.Identity.Name;
-            SqlDataSource1.SelectParameters.Clear();
-            SqlDataSource1.SelectParameters.Add("@UserName", user);           
+            string id = (string)Session["NewData"];
+            string name = (string)Session["Name"];
+            string price = (string)Session["Price"];
+             
             if(!Page.IsPostBack)
             {
-                object sum;
-                if (Session["DataGrid"] != null)
+                if(Session["NewData"] != null)
                 {
-                    DataTable gridTable = (DataTable)Session["DataGrid"];
-                    if (Session["NewData"] != null)
-                    {
-                        Product newEntry = (Product)Session["NewData"];
-                        DataRow dr = gridTable.NewRow();
-                        dr["Name"] = newEntry.ProductName;
-                        dr["Price"] = newEntry.ProductPrice;
-                        dr["SubTotal"] = Convert.ToDouble(newEntry.ProductPrice) * Convert.ToDouble(dr["Qty"]);
-                        gridTable.Rows.Add(dr);
-                        Session.Remove("NewData");
-                    }
+                    con.Open();
 
-                    this.LoadTable();
-                    sum = gridTable.Compute("Sum(SubTotal)", string.Empty);
-                    Label1.Text = sum.ToString();
+                    SqlCommand NewCart = new SqlCommand("INSERT INTO [ShoppingCart] ([UserName],[ItemId],[Price],[ItemName]) VALUES (@user, @ID, @Price, @Name)", con);
+                    NewCart.Parameters.Add("@user", System.Data.SqlDbType.VarChar).Value = user;
+                    NewCart.Parameters.Add("@ID", System.Data.SqlDbType.VarChar).Value = id;
+                    NewCart.Parameters.Add("@Price", System.Data.SqlDbType.VarChar).Value = price;
+                    NewCart.Parameters.Add("@Name", System.Data.SqlDbType.VarChar).Value = name;
+                    NewCart.ExecuteNonQuery();
+
+                    con.Close();
+                    Session.Remove("NewData");
                 }
-                else
+                // select sum(SubTotal) as GrandTotal from [ShoppingCart] while (UserName = @user)
+
+                using (System.Data.SqlClient.SqlCommand command = new System.Data.SqlClient.SqlCommand("SELECT SUM(SubTotal) as GrandTotal FROM ShoppingCart WHERE (UserName = @user)", con))
                 {
-                    DataTable dt = new DataTable();
-                    dt.Columns.Add("Name", typeof(string));
-                    dt.Columns.Add("Price", typeof(double));
-                    dt.Columns.Add("Qty", typeof(int));
-                    dt.Columns.Add("SubTotal", typeof(double));
-                    dt.Columns["Qty"].DefaultValue = 1;
-                    Session.Add("DataGrid", dt);
-                    this.LoadTable();
+                    command.Parameters.AddWithValue("@user", user);
+                    con.Open();
+                    object result = command.ExecuteScalar();
+                    Label1.Text = result.ToString();
+                    con.Close();
+                    Session.Add("total", result.ToString());
                 }
+
+
+                //object sum; 
+                //if (Session["DataGrid"] != null)
+                //{
+                //    DataTable gridTable = (DataTable)Session["DataGrid"];
+                //    if (Session["NewData"] != null)
+                //    {
+                //        Product newEntry = (Product)Session["NewData"];
+                //        DataRow dr = gridTable.NewRow();
+                //        dr["Name"] = newEntry.ProductName;
+                //        dr["Price"] = newEntry.ProductPrice;
+                //        dr["SubTotal"] = Convert.ToDouble(newEntry.ProductPrice) * Convert.ToDouble(dr["Qty"]);
+                //        gridTable.Rows.Add(dr);
+                //        Session.Remove("NewData");
+                //    }
+
+                //    this.LoadTable();
+                //    sum = gridTable.Compute("Sum(SubTotal)", string.Empty);
+                //    Label1.Text = sum.ToString();
+                //}
+                //else
+                //{
+                //    DataTable dt = new DataTable();
+                //    dt.Columns.Add("Name", typeof(string));
+                //    dt.Columns.Add("Price", typeof(double));
+                //    dt.Columns.Add("Qty", typeof(int));
+                //    dt.Columns.Add("SubTotal", typeof(double));
+                //    dt.Columns["Qty"].DefaultValue = 1;
+                //    Session.Add("DataGrid", dt);
+                //    this.LoadTable();
+                //}
             }
         }
-
-        protected void LoadTable()
+        protected void SqlDataSource1_Selecting(object sender, SqlDataSourceSelectingEventArgs e)
         {
-            DataTable gridTable = (DataTable)Session["DataGrid"];
-            GridView1.DataSource = gridTable;
-            GridView1.DataBind();
+            e.Command.Parameters["Id"].Value = 1;
         }
-
-        protected void GV_RowDeleting(object sender, GridViewDeleteEventArgs e)
-        {
-            DataTable dt = (DataTable)Session["DataGrid"];
-            dt.Rows.RemoveAt(e.RowIndex);
-            GridView1.DataSource = dt;
-            GridView1.DataBind();
-            this.LoadTable();
-            Response.Redirect(Request.RawUrl);
-        }
-
         protected void Button1_Click(object sender, EventArgs e)
         {
-            
-        }
-
-        protected void GridView1_RowEditing(object sender, GridViewEditEventArgs e)
-        {
-            GridView1.EditIndex = e.NewEditIndex;
-            this.LoadTable();
-        }
-
-        protected void GridView1_RowUpdated(object sender, GridViewUpdatedEventArgs e)
-        {
-        }
-
-        protected void GridView1_RowUpdating(object sender, GridViewUpdateEventArgs e)
-        {
-            DataTable dt = (DataTable)Session["DataGrid"];
-            GridViewRow row = GridView1.Rows[e.RowIndex];
-            dt.Rows[row.DataItemIndex]["Qty"] = ((TextBox)(row.Cells[0].FindControl("Quantity"))).Text;
-            GridView1.EditIndex = -1;
-
-            
-            double temp1, temp2, temp3;
-            DataTable gridTable = (DataTable)Session["DataGrid"];
-            foreach (DataRow dr in gridTable.Rows)
-            {
-                temp1 = Convert.ToDouble(dr["Qty"]);
-                temp2 = Convert.ToDouble(dr["Price"]);
-                temp3 = temp1 * temp2;
-                dr["subTotal"] = temp3;
-            }
-
-            this.LoadTable();
+            SqlCommand Insert = new SqlCommand("INSERT INTO [Order] ([ItemID],[UserName],[Quantity]) SELECT [ItemId],[UserName],[Qty] FROM [ShoppingCart] Where(UserName = @user)", con);
+            Insert.Parameters.AddWithValue("@user", User.Identity.Name);
+            SqlCommand Delete = new SqlCommand("DELETE [ShoppingCart] Where(UserName = @user)", con);
+            Delete.Parameters.AddWithValue("@user", User.Identity.Name);
+            con.Open();
+            Insert.ExecuteNonQuery();
+            Delete.ExecuteNonQuery();
+            con.Close();
             Response.Redirect(Request.RawUrl);
-        }
-
-        protected void GridView1_RowCancelingEdit(object sender, GridViewCancelEditEventArgs e)
-        {
-            GridView1.EditIndex = -1;
-            this.LoadTable();
         }
     }
 }

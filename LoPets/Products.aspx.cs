@@ -18,7 +18,11 @@ namespace LoPets
         protected void AddToCart(object sender, EventArgs e)
         {
             string id = (((sender as Button).NamingContainer as RepeaterItem).FindControl("ItemID") as Label).Text;
+            string name = (((sender as Button).NamingContainer as RepeaterItem).FindControl("ItemName") as Label).Text;
+            string price = (((sender as Button).NamingContainer as RepeaterItem).FindControl("ItemPrice") as Label).Text;
             Session.Add("NewData", id);
+            Session.Add("Name", name);
+            Session.Add("Price", price);
             Response.Redirect("~/Cart.aspx");
         }
 

@@ -77,7 +77,7 @@
                         </RoleGroups>
                         <LoggedInTemplate>
                             <ul class="nav navbar-nav navbar-right">
-                                <li><a runat="server" href="#" title="Order History">Orders</a> </li>
+                                <li><a runat="server" href="~/OrderHistory.aspx" title="Order History">Orders</a> </li>
                                 <li><a runat="server" href="~/Cart.aspx"><span class="glyphicon glyphicon-shopping-cart"></span></a></li>
                                 <li><a runat="server" href="~/Account/Manage" title="Manage your account">Hello, <%: Context.User.Identity.GetUserName()  %> !</a></li>
                                 <li>

@@ -7,11 +7,11 @@ using System.Web.UI.WebControls;
 
 namespace LoPets
 {
-    public partial class _Default : Page
+    public partial class OrderHistory : System.Web.UI.Page
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-            Session.Add("user", User.Identity.Name);
+
         }
     }
 }

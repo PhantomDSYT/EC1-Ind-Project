@@ -33,13 +33,13 @@ namespace LoPets
         protected global::System.Web.UI.WebControls.GridView GridView1;
 
         /// <summary>
-        /// LopetsDB control.
+        /// LoPets control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.SqlDataSource LopetsDB;
+        protected global::System.Web.UI.WebControls.SqlDataSource LoPets;
 
         /// <summary>
         /// SqlDataSource1 control.

@@ -206,6 +206,7 @@
     <Content Include="Images\Fish.jpg" />
     <Content Include="Images\hamster-ball.jpg" />
     <Content Include="Images\Lopets-logo.png" />
+    <Content Include="OrderHistory.aspx" />
     <Content Include="Products.aspx" />
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />
@@ -426,6 +427,13 @@
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
     <Compile Include="Models\IdentityModels.cs" />
+    <Compile Include="OrderHistory.aspx.cs">
+      <DependentUpon>OrderHistory.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="OrderHistory.aspx.designer.cs">
+      <DependentUpon>OrderHistory.aspx</DependentUpon>
+    </Compile>
     <Compile Include="Product.cs" />
     <Compile Include="Products.aspx.cs">
       <DependentUpon>Products.aspx</DependentUpon>

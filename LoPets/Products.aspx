@@ -9,9 +9,9 @@
                         <div class="panel-body">
                             <i><asp:Label ID="ItemID" runat="server" Text=<%#Eval("ItemID") %>></asp:Label></i> 
                             <h4><u><%#Eval("ItemCat") %></u></h4>
-                            <h2><%#Eval("ItemName") %></h2>
+                            <h2><asp:Label ID="ItemName" runat="server" Text=<%#Eval("ItemName") %>></asp:Label></h2>
                             <p><%#Eval("ItemDesc") %></p>
-                            <h3>&#36 <%#Eval("ItemPrice") %></h3>
+                            <h3>&#36 <asp:Label ID="ItemPrice" runat="server" Text=<%#Eval("ItemPrice") %>></asp:Label></h3>
                         </div>
                         <div class ="panel-footer"><asp:Button ID="Button2" runat="server" CssClass="btn btn-primary" Text="Add to cart &raquo;" OnClick="AddToCart" /> </div>              
                     </div>
